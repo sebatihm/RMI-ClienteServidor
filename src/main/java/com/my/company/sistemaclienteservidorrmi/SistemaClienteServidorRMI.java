@@ -4,6 +4,8 @@
 
 package com.my.company.sistemaclienteservidorrmi;
 
+import com.my.company.sistemaclienteservidorrmi.controllers.AppointmentController;
+
 /**
  *
  * @author Sebah
@@ -11,6 +13,7 @@ package com.my.company.sistemaclienteservidorrmi;
 public class SistemaClienteServidorRMI {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        AppointmentController persistance = new AppointmentController();
+        
     }
 }
