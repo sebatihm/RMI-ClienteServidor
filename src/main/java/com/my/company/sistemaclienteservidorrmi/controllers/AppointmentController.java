@@ -5,7 +5,7 @@
 package com.my.company.sistemaclienteservidorrmi.controllers;
 
 import com.my.company.sistemaclienteservidorrmi.entities.Appointment;
-import com.my.company.sistemaclienteservidorrmi.persistence.AppointmentJpaController;
+//import com.my.company.sistemaclienteservidorrmi.persistence.AppointmentJpaController;
 import com.my.company.sistemaclienteservidorrmi.persistence.PersistenceController;
 import com.my.company.sistemaclienteservidorrmi.persistence.exceptions.NonexistentEntityException;
 import java.util.logging.Level;

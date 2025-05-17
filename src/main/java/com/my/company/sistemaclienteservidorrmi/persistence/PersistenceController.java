@@ -5,7 +5,10 @@
 package com.my.company.sistemaclienteservidorrmi.persistence;
 
 import com.my.company.sistemaclienteservidorrmi.entities.Appointment;
+import com.my.company.sistemaclienteservidorrmi.entities.Patient;
 import com.my.company.sistemaclienteservidorrmi.persistence.exceptions.NonexistentEntityException;
+
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 /**
@@ -14,8 +17,10 @@ import java.util.logging.Logger;
  */
 public class PersistenceController {
     AppointmentJpaController control = new AppointmentJpaController();
+    PatientJpaController controlPatient = new PatientJpaController();
     
     
+    //Appointment
     public void createAppointment(Appointment appointment){
         control.create(appointment);
     }
@@ -33,4 +38,33 @@ public class PersistenceController {
         control.destroy(id);
     }
     
+
+    //Patient
+    public void createPatient(Patient patient){
+        controlPatient.create(patient);
+    }
+
+    public void editPatient(Patient patient){
+        try{
+            controlPatient.edit(patient);
+        }catch (Exception ex) {
+            Logger.getLogger(PersistenceController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+
+    public void deletePatient(int id){
+        controlPatient.destroy(id);
+    }
+
+    public Patient findPatient(int id){
+        return controlPatient.findPatient(id);
+    }
+
+    public List<Patient> findAllPatients() {
+        return controlPatient.findAllPatients();
+    }   
+
+
+
 }

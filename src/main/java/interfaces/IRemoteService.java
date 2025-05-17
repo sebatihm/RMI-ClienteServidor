@@ -1,0 +1,7 @@
+package interfaces;
+
+import java.rmi.RemoteException;
+
+public interface IRemoteService extends java.rmi.Remote {
+    public IPatientInterface getPatientService() throws RemoteException;
+}
