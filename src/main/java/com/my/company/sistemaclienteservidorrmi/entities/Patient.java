@@ -1,9 +1,13 @@
 package com.my.company.sistemaclienteservidorrmi.entities;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Patient implements java.io.Serializable {
@@ -15,6 +19,9 @@ public class Patient implements java.io.Serializable {
     private String CURP;
     private String phone;
     private String email;   
+    
+    @OneToMany(mappedBy= "patient", fetch = FetchType.EAGER)
+    private List<Appointment> appointments = new ArrayList<>();
 
     public Patient() {
     }
@@ -64,6 +71,10 @@ public class Patient implements java.io.Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<Appointment> getAppointments() {
+        return appointments;
     }
 
     

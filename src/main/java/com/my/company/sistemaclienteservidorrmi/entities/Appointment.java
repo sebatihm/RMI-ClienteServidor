@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 
 /**
@@ -30,17 +31,23 @@ public class Appointment implements Serializable{
     private LocalTime hour; 
     
     private String subject;
-    private int doctor_id;
-    private int patient_id;
+    
+    @ManyToOne
+    private Doctor doctor;
+    
+    
+    @ManyToOne
+    private Patient patient;
+    
 
     public Appointment (){}
 
-    public Appointment(Date date, LocalTime hour, String subject, int doctor_id, int patient_id) {
+    public Appointment(Date date, LocalTime hour, String subject, Doctor doctor, Patient patient) {
         this.date = date;
         this.hour = hour;
         this.subject = subject;
-        this.doctor_id = doctor_id;
-        this.patient_id = patient_id;
+        this.doctor = doctor;
+        this.patient = patient;
     }
 
     public int getId() {
@@ -75,24 +82,24 @@ public class Appointment implements Serializable{
         this.subject = subject;
     }
 
-    public int getDoctor_id() {
-        return doctor_id;
+    public Doctor getDoctor() {
+        return doctor;
     }
 
-    public void setDoctor_id(int doctor_id) {
-        this.doctor_id = doctor_id;
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
     }
 
-    public int getPatient_id() {
-        return patient_id;
+    public Patient getPatient() {
+        return patient;
     }
 
-    public void setPatient_id(int patient_id) {
-        this.patient_id = patient_id;
+    public void setPatient(Patient patient) {
+        this.patient = patient;
     }
 
     
-    
+
     
     
     

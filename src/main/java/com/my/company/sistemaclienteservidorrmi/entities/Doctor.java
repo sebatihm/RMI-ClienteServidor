@@ -4,6 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Doctor implements Serializable {
@@ -15,6 +19,10 @@ public class Doctor implements Serializable {
     private String specialty;
     private String license;
     private String email;
+    
+    @OneToMany(mappedBy= "doctor", fetch = FetchType.EAGER)
+    private List<Appointment> appointments = new ArrayList<>();
+    
 
     public Doctor() {
     }
@@ -65,4 +73,10 @@ public class Doctor implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public List<Appointment> getAppointments() {
+        return appointments;
+    }
+    
+    
 }

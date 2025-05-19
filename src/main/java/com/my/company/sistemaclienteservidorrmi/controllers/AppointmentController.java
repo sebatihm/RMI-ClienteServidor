@@ -8,21 +8,27 @@ import com.my.company.sistemaclienteservidorrmi.entities.Appointment;
 //import com.my.company.sistemaclienteservidorrmi.persistence.AppointmentJpaController;
 import com.my.company.sistemaclienteservidorrmi.persistence.PersistenceController;
 import com.my.company.sistemaclienteservidorrmi.persistence.exceptions.NonexistentEntityException;
+import interfaces.IAppointmentInterface;
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author Sebah
- */
-public class AppointmentController {
-    PersistenceController controller = new PersistenceController();
+public class AppointmentController extends UnicastRemoteObject implements IAppointmentInterface {
     
-    public void createAppointment(Appointment appointment){
-        controller.createAppointment(appointment);
+    public AppointmentController() throws RemoteException {
+        super();
     }
     
-    public void editAppointment(Appointment appointment){
+    PersistenceController controller = new PersistenceController();
+    
+    
+    public void createAppointment(Appointment appointment)throws RemoteException{
+        controller.createAppointment(appointment);
+    }
+        
+    public void updateAppointment(Appointment appointment) throws RemoteException{
         try {
             controller.editAppointment(appointment);
         } catch (NonexistentEntityException ex) {
@@ -30,9 +36,16 @@ public class AppointmentController {
         }
     }
     
-    public void destroyAppointment(Appointment appointment){
-        controller.createAppointment(appointment);
+    public void deleteAppointment(int id) throws RemoteException{
+        controller.deleteAppointment(id);
     }
     
+    public Appointment getAppointment(int id) throws RemoteException{
+        return controller.findAppointment(id);
+    }
+    
+    public List<Appointment> getAllAppointments() throws RemoteException{
+        return controller.findAppointments();
+    }
     
 }

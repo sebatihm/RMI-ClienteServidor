@@ -40,6 +40,14 @@ public class PersistenceController {
         control.destroy(id);
     }
     
+    public Appointment findAppointment(int id){
+        return control.findAppointment(id);
+    }
+    
+    public List<Appointment> findAppointments(){
+        return control.findAppointmentEntities();
+    }
+    
 
     //Patient
     public void createPatient(Patient patient){

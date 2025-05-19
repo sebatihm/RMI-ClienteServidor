@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.my.company.sistemaclienteservidorrmi.persistence;
 
 import java.io.Serializable;
@@ -16,10 +12,7 @@ import com.my.company.sistemaclienteservidorrmi.entities.Appointment;
 import com.my.company.sistemaclienteservidorrmi.persistence.exceptions.NonexistentEntityException;
 
 
-/**
- *
- * @author Sebah
- */
+
 public class AppointmentJpaController implements Serializable {
     private EntityManagerFactory emf = null;
 

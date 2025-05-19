@@ -1,5 +1,6 @@
 package com.my.company.sistemaclienteservidorrmi.controllers;
 
+import interfaces.IAppointmentInterface;
 import java.rmi.RemoteException;
 
 import interfaces.IDoctorInterface;
@@ -9,10 +10,12 @@ public class RemoteServiceImpl extends java.rmi.server.UnicastRemoteObject imple
 
     private IPatientInterface patientService;
     private IDoctorInterface doctorService;
+    private IAppointmentInterface appointmentService;
     public RemoteServiceImpl() throws java.rmi.RemoteException {
         super();
         this.patientService = new PatientController();
         this.doctorService = new DoctorController();
+        this.appointmentService = new AppointmentController();
     }
 
     @Override
@@ -23,6 +26,11 @@ public class RemoteServiceImpl extends java.rmi.server.UnicastRemoteObject imple
     @Override
     public IDoctorInterface getDoctorService() throws RemoteException {
         return doctorService;
+    }
+    
+    @Override
+    public IAppointmentInterface getAppointmentService() throws RemoteException {
+        return appointmentService;
     }
 
 
