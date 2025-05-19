@@ -4,6 +4,7 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>com.my.company.sistemaclienteservidorrmi.entities.Appointment</class>
     <class>com.my.company.sistemaclienteservidorrmi.entities.Patient</class>
+    <class>com.my.company.sistemaclienteservidorrmi.entities.Doctor</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/rmi-java?serverTimezone=UTC"/>
       <property name="javax.persistence.jdbc.user" value="root"/>

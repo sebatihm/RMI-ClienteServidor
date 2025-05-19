@@ -19,7 +19,7 @@ public class MainFrame extends JFrame {
         tabbedPane = new JTabbedPane();
         
         // Agregar los paneles para cada entidad
-        //tabbedPane.addTab("Médicos", new MedicoPanel());
+        tabbedPane.addTab("Médicos", new MedicalPanel());
         tabbedPane.addTab("Pacientes", new PatientPanel());
         //tabbedPane.addTab("Citas", new CitaPanel());
         
